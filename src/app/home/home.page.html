@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="tete" color="blue" >
+    <ion-title> Test Voice Recorder </ion-title>
+    <ion-button fill="clear" slot="end">
+      <ion-icon name="videocam-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear"  slot="end" >
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-button>
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" > 
+  <ion-list>
+    <ion-item *ngFor="let f of storedFileNames" (click)="playFile(f)">
+      {{f}}
+      <ion-button fill="clear" style="margin-left: auto;">
+        <ion-icon name="play" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear"  >
+        <ion-icon name="pause" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar >
+  <ion-grid>
+  <ion-row class="ion-align-items-center">
+<ion-toolbar>
+  <ion-button slot="start" fill="clear"> <ion-icon name="add-outline"></ion-icon></ion-button>
+  <!--eslint-disable-line--> <ion-input v-model="msg" placeholder="Entrer votre message" type="text" id="in"></ion-input>
+ <span *ngIf="recording"> {{durationDisplay}} </span>
+  <ion-button slot="end" shape="full"  fill="clear" ><ion-icon name="send-outline"></ion-icon></ion-button>
+  <ion-button slot="end" fill="clear" #recordbtn>
+    <ion-icon name="mic-outline" slot="icon-only"></ion-icon>
+  </ion-button>
+  <ion-button slot="end" fill="clear" >
+    <ion-icon name="camera-outline" slot="icon-only"></ion-icon>
+  </ion-button>
+</ion-toolbar>
+</ion-row>
+  </ion-grid>
+</ion-toolbar>
+</ion-footer>
+
+
+
+
+
+<style>
+  ion-title{
+    font-size:20px;
+    font-weight: bold;
+    text-align: left;
+    color: white;
+  }
+  .tete{
+    background-color: #024e82;
+  }
+</style>
